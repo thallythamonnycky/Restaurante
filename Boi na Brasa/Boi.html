@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Boi na Brasa</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <style>
+        
+body {
+    background-color: #7c7b7b;
+    font-family: Verdana;
+    color: aliceblue;
+}
+
+.wrapper {
+    display: grid;
+    margin: 2% 5%;
+    background-color: #6F2232;
+    grid-template-columns: 49% 49%;
+    grid-gap: 10px;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.wrapper > div {
+    background-color: #f80303;
+}
+
+.firstItem {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.firstItem > img {
+    width: 75%;
+    height: auto;
+}
+
+.firstItem > h1 {
+    font-size: 3vw;
+}
+
+.secondItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 2vw;
+    padding: 3%;
+}
+.secondItem > *{
+    align-self: center;
+}
+
+.thirdItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.thirdItem > * {
+    align-self: center;
+    text-align: center;
+}
+
+.thirdItem > nav {
+    padding: 10px;
+}
+
+.thirdItem > a {
+    text-decoration: none;
+    font-weight: 700;
+    color: azure;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 10px;
+    background-color: crimson;
+    border: 2px solid #881111;
+    border-radius: 30%;
+}
+
+.thirdItem > a:hover{
+    background-color: azure;
+    color: crimson;
+}
+
+.fourthItem {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+
+.fourthItem > *{
+    align-self: center;
+}
+
+@media screen and (max-width: 600px) {
+    
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    
+    .wrapper{
+        grid-template-columns: 1fr;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        grid-gap: 0;
+    }
+    .wrapper .Item:nth-child(odd){
+        background-color: #f9f4f5;
+    }
+  
+}
+
+
+
+
+
+
+
+    </style>
+    
+    <body>
+        <div class="wrapper">
+            
+            <div class="firstItem Item">
+                <img src="https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/0ed4c223-1c8c-42be-8744-7dc0317d2d4e/4386ca2b-f7b6-4a50-aed5-c809ac8b0bd1.jpg">
+                <h1>Boi na Brasa</h1>
+            </div>
+            
+            <div class="secondItem Item">
+                <h2>Contatos!</h2>
+                <nav><i class="material-icons">call</i> 3413-4040</nav>
+                <nav><i class="material-icons">contact_mail</i> boinabrasa@gmail.com</nav>
+            </div>
+            
+            <div class="thirdItem Item">
+                <nav>Verifique as promoções!</nav>
+                <a href="cardapio.html">Clique aqui!</a>
+            </div>
+            
+            <div class="fourthItem Item">
+                <h1>Sobre nós</h1>
+                <p>
+                    Desde 1930, com os melhores almoço, janta e tudo de mais gostoso para o cliente.
+                </p>
+            </div>
+            
+        </div>
+    </body>
+</html>

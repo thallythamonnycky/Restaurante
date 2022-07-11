@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cardapio</title>
+</head>
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
+$transition: 500ms ease all;
+
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Sigmar One", cursive;
+  background: #f80303;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+h1 {
+  font-size: 3rem;
+}
+#burger-menu-checkbox {
+  position: absolute;
+  left: -9999px;
+}
+.burger-menu {
+  $ref: &;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  height: 20vh;
+  aspect-ratio: 1/1;
+  &__ingredients {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    transition: $transition;
+  }
+  &__toggle {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    z-index: 1;
+    transform: translateZ(10vh);
+    transition: $transition;
+    border-radius: 50%;
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -5vh;
+      margin-top: -0.75vh;
+      width: 10vh;
+      height: 1.5vh;
+      color: #af651c;
+      border-radius: 1vh;
+      transition: $transition;
+      box-shadow: inset 0 6vh;
+    }
+    &:before {
+      background: #af651c;
+      box-shadow: inset 0 6vh, 0 -3vh, 0 3vh;
+    }
+    &:hover {
+      &:before,
+      &:after {
+        filter: brightness(0.5);
+      }
+      ~ #{$ref}__ingredients {
+        transform: translateY(-1vh) rotateX(10deg);
+      }
+    }
+  }
+  &__slice {
+    position: absolute;
+    inset: 0;
+    background: red;
+    border-radius: 50%;
+    transition: $transition;
+    transition-delay: 250ms;
+    @for $i from 0 to 7 {
+      &:nth-child(#{$i}) {
+        transform: translateZ($i * -5vh);
+      }
+    }
+    &--bread {
+      background: #ee851c;
+    }
+    &--lettuce {
+      background: #a8e008;
+    }
+    &--tomatoes {
+      background: #ea0802;
+    }
+    &--cheese {
+      background: #ffdd42;
+    }
+    &--steak {
+      background: #792b1c;
+    }
+    a {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      text-decoration: none;
+      color: #000;
+      top: 50%;
+      left: 100%;
+      margin-left: 4vh;
+      white-space: nowrap;
+      margin-top: -0.5em;
+      font-size: 4vh;
+      transform: translate(-25%);
+      transition: $transition;
+      transition-delay: 0ms;
+    }
+  }
+
+  #burger-menu-checkbox:checked ~ & {
+    #{$ref}__ingredients {
+      transform: translateY(-20vh) rotateX(45deg);
+    }
+
+    #{$ref}__slice {
+      @for $i from 0 to 7 {
+        &:nth-child(#{$i}) {
+          transform: translateZ($i * -10vh);
+        }
+      }
+      a {
+        opacity: 1;
+        transform: translate(0);
+        pointer-events: all;
+        transition-delay: 500ms;
+      }
+    }
+
+    #{$ref}__toggle {
+      transform: translateY(-30vh);
+      &:after,
+      &:before {
+        color: #000;
+        background: #000;
+      }
+      &:before {
+        transform: rotate(-45deg);
+        box-shadow: inset 0 6vh, 0 0, 0 0;
+      }
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+</style>
+<body>
+	<input type="checkbox" id="burger-menu-checkbox">
+<h1>Boi na Brasa Cardapio !</h1>
+<nav class="burger-menu">
+  <label for="burger-menu-checkbox" class="burger-menu__toggle"></label>
+  <ul class="burger-menu__ingredients">
+    <li class="burger-menu__slice burger-menu__slice--bread">
+      <a href="">Principal</a>
+    </li>
+    <li class="burger-menu__slice burger-menu__slice--lettuce">
+      <a href="jantar.html">Almoço</a>
+    </li>
+    <li class="burger-menu__slice burger-menu__slice--tomatoes">
+      <a href="almoço.html">Jantar</a>
+    </li>
+    <li class="burger-menu__slice burger-menu__slice--cheese">
+      <a href="">Drinks</a>
+    </li>
+  </ul>
+</nav>
+
+</body>
+</html>
